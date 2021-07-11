@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html data-ng-app = 'myApp'>
+    <head>
+        <title>Status post with delete</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5
+        elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the
+        page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="js/html5shiv.js"></script>
+            <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body ng-controller="myCtrl">
+        <div class="container">
+            <div class="row">
+                <div class="col jumbotron">
+                    <h1>Status app <small>with a delete feature</small></h1>
+                </div>
+            </div>
+            <div class="row text-primary">
+                <div class="col-md-1">Status:</div>
+                <div class="col-md-2"><input type="text" data-ng-model="status" /></div>
+                <!-- Reads the inputted status -->
+                <div class="col-md-2"><input type="submit" class="btn btn-grey btn-rounded z-depth-1a" ng-click="submitPost(status)" /></div>
+                <!-- Button which will store data -->
+            </div>
+            <div class="row">
+                <ul class="list-group" data-ng-repeat="d in data">
+                    <li class="list-group-item">
+                        <p>
+                            {{d}}
+                            <!-- Shows the statuses in a loop -->
+                            <button type="button" class="btn btn-rounded btn-danger" ng-click="delete($index)">Del</button>
+                            <!-- A button which will delete the specific element on the list, $index makes this possible as it specifies the current element -->
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- jQuery – required for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.min.js"></script>
+        <!-- All Bootstrap  plug-ins  file -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Basic AngularJS -->
+        <script src="js/angular.min.js"></script>
+        <!-- AngularJS - Routing -->
+        <script src="js/angular-route.min.js"></script>
+        <!-- App Script -->
+        <script src="js/appstatpost.js"></script>
+    </body>
+</html>
